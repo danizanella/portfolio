@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniela Zanella - Diseñadora Senior UX/UI y de Producto</title>
+    <meta name="description" content="Portafolio de Daniela Zanella. Diseñadora UX/UI y de Producto que crea soluciones B2B y experiencias intuitivas desde 2019.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Daniela Zanella - Senior Product Designer">
+    <meta property="og:description" content="Portfolio of Daniela Zanella. UX/UI & Product Designer bridging the gap between user needs and strategic growth.">
+    <meta property="og:image" content="https://danizanella.github.io/portfolio/assets/images/home/photo.png">
+    <meta property="og:url" content="https://danizanella.github.io/portfolio/">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body data-title-key="home.meta.title" data-desc-key="home.meta.description">
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand" aria-label="Daniela Zanella"><span class="brand-full">Daniela Zanella.</span><span class="brand-short" aria-hidden="true">DZ.</span></a>
+        <div class="nav-links">
+            <a href="#work" class="nav-link" data-i18n="nav.work">Proyectos</a>
+            <a href="https://www.linkedin.com/in/dazanella/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
+            <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.lang" aria-label="Cambiar idioma">
+                <button type="button" class="lang-option active" data-lang="es" aria-pressed="true">ES</button>
+                <button type="button" class="lang-option" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero (fondo a todo el ancho) -->
+        <section class="hero">
+            <div class="hero-inner fade-in">
+                <div class="profile-container stagger-1">
+                    <img src="assets/images/home/photo.png" data-i18n-attr="alt:home.hero.alt" alt="Daniela Zanella" class="profile-img">
+                </div>
+                <h1 class="headline fade-in stagger-2" data-i18n-html="home.hero.headline"></h1>
+                <p class="hero-subtitle fade-in stagger-3" data-i18n="home.hero.subtitle"></p>
+            </div>
+        </section>
+
+        <div class="container">
+
+        <!-- Statement Section -->
+        <section class="statement fade-in zoom">
+            <h2 class="serif-text" data-i18n-html="home.statement"></h2>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="case-studies" id="work">
+            <!-- Project 1: NEXUS -->
+            <div class="case-card glass-panel fade-in slide-left">
+                <div class="case-content">
+                    <div class="tags">
+                        <span class="tag pink" data-i18n="home.nexus.tag1"></span>
+                        <span class="tag" data-i18n="home.nexus.tag2"></span>
+                        <span class="tag" data-i18n="home.nexus.tag3"></span>
+                    </div>
+                    <h3 data-i18n="home.nexus.title"></h3>
+                    <p data-i18n="home.nexus.text"></p>
+                    <a href="project-nexus.html" class="btn-primary" data-i18n="cta.caseStudy"></a>
+                </div>
+                <div class="case-image">
+                    <img src="assets/images/home/nexus-cover.png" data-i18n-attr="alt:home.nexus.imgAlt" alt="Dashboard del postulante en Nexus">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer fade-in zoom">
+            <div class="footer-content glass-panel">
+                <p data-i18n="footer.rights"></p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/dazanella/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+                    <a href="mailto:dzanella2898@gmail.com" class="social-link" data-i18n="footer.email"></a>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </main>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop" data-i18n-attr="aria-label:backToTop" aria-label="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </a>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
