@@ -17,6 +17,8 @@ Sitio estático (HTML, CSS y JavaScript, sin dependencias ni build) con selector
     └── nexus/              Imágenes del proyecto Nexus
 ```
 
+El favicon está en `assets/favicon/` (reemplaza `favicon-512.png` y regenera los demás tamaños si lo cambias).
+
 ## Ver en local
 
 Abre `index.html` en el navegador, o usa un servidor local:
@@ -39,3 +41,9 @@ python3 -m http.server 8000
 4. Cambia las llaves `nexus.` por el prefijo nuevo en el HTML nuevo.
 5. Agrega su card en `index.html` y enlaza los botones de "Otros proyectos" (en cada página deben mostrarse los *otros* proyectos, no el actual).
 6. Actualiza `og:title`, `og:description`, `og:image` y `og:url` del `<head>`.
+
+## URLs limpias
+
+En el sitio publicado, `script.js` quita `index.html` y `.html` de la barra de direcciones
+(`/portfolio/` y `/portfolio/project-nexus`). GitHub Pages sirve las páginas sin extensión, así que recargar funciona.
+En local no se aplica. Al crear páginas nuevas, usa en `og:url` y `canonical` la URL sin `.html`.

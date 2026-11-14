@@ -1,3 +1,16 @@
+// URL limpia: /portfolio/index.html -> /portfolio/  y  /portfolio/project-nexus.html -> /portfolio/project-nexus
+// Solo en el sitio publicado (GitHub Pages sirve las páginas sin ".html").
+// En local (localhost o abriendo el archivo) no se toca nada para que todo siga funcionando.
+(function cleanUrl() {
+    const isLocal = !/^https?:$/.test(location.protocol) ||
+        ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+    if (isLocal) return;
+    const cleanPath = location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
+    if (cleanPath !== location.pathname) {
+        history.replaceState(null, '', cleanPath + location.search + location.hash);
+    }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Intersection Observer for fade-in animations on scroll
     const observerOptions = {
