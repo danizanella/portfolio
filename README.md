@@ -47,3 +47,8 @@ python3 -m http.server 8000
 En el sitio publicado, `script.js` quita `index.html` y `.html` de la barra de direcciones
 (`/portfolio/` y `/portfolio/project-nexus`). GitHub Pages sirve las páginas sin extensión, así que recargar funciona.
 En local no se aplica. Al crear páginas nuevas, usa en `og:url` y `canonical` la URL sin `.html`.
+
+## Caché del navegador
+
+Los enlaces a `style.css`, `i18n.js` y `script.js` llevan `?v=3`. Cada vez que cambies esos archivos y los subas,
+súbele el número (`?v=4`, `?v=5`...) en todos los HTML para que los navegadores, sobre todo en móvil, no usen la versión vieja.

@@ -1,10 +1,27 @@
-// URL limpia: /portfolio/index.html -> /portfolio/  y  /portfolio/project-nexus.html -> /portfolio/project-nexus
-// Solo en el sitio publicado (GitHub Pages sirve las páginas sin ".html").
-// En local (localhost o abriendo el archivo) no se toca nada para que todo siga funcionando.
-(function cleanUrl() {
+// URLs limpias
+// En el sitio publicado (GitHub Pages) los enlaces ya son limpios: "./" y "project-nexus".
+// En local (doble clic o localhost) no existe esa magia del servidor, así que
+// se les agrega ".html" para que la navegación siga funcionando al probar.
+(function cleanUrls() {
     const isLocal = !/^https?:$/.test(location.protocol) ||
         ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-    if (isLocal) return;
+
+    if (isLocal) {
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href]').forEach(a => {
+                const href = a.getAttribute('href');
+                if (/^(https?:|mailto:|#)/.test(href)) return;
+                const [path, hash] = href.split('#');
+                let fixed = path;
+                if (path === './' || path === '') fixed = 'index.html';
+                else if (!/\.[a-z0-9]+$/i.test(path)) fixed = path + '.html';
+                a.setAttribute('href', fixed + (hash ? '#' + hash : ''));
+            });
+        });
+        return;
+    }
+
+    // Publicado: si alguien entra directo a /index.html o /algo.html, se limpia la barra de direcciones
     const cleanPath = location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
     if (cleanPath !== location.pathname) {
         history.replaceState(null, '', cleanPath + location.search + location.hash);

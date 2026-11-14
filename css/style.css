@@ -263,9 +263,12 @@ body {
 }
 
 .case-card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: auto auto;
+    column-gap: 4rem;
+    row-gap: 0;
     align-items: center;
-    gap: 4rem;
     padding: 3rem;
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -276,12 +279,16 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.case-card.reverse {
-    flex-direction: row-reverse;
+.case-tags {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
 }
 
 .case-content {
-    flex: 1;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
 }
 
 .tags {
@@ -345,7 +352,9 @@ body {
 }
 
 .case-image {
-    flex: 1.2;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
     border-radius: 16px;
     overflow: hidden;
     position: relative;
@@ -370,6 +379,11 @@ body {
 .project-hero {
     background: linear-gradient(105deg, #fcd5e6 0%, #fbe6ef 45%, var(--bg-color) 100%);
     padding: 9rem 2rem 4.5rem;
+}
+
+/* Misma separación entre el banner y la primera sección que entre secciones */
+.project-hero + .container {
+    padding-top: 6rem;
 }
 
 .project-header {
@@ -794,15 +808,33 @@ body {
         font-size: 2rem;
     }
     
-    .case-card, .case-card.reverse {
-        flex-direction: column;
-        gap: 2rem;
+    /* Card en móvil/tablet: una columna, en el orden del HTML (tags -> imagen -> texto) */
+    .case-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        align-items: stretch;
     }
-    
+
+    .case-tags,
+    .case-image,
+    .case-content {
+        grid-column: 1;
+        grid-row: auto;
+        align-self: stretch;
+    }
+
+    .case-tags {
+        margin-bottom: 1.5rem;
+    }
+
     .case-image {
-        width: 100%;
+        margin-bottom: 1.75rem;
     }
-    
+
+    .case-content .btn-primary {
+        align-self: flex-start;
+    }
+
     .project-meta {
         /* Use a 2x2 grid instead of a single column for better space usage on tablets */
         display: grid;

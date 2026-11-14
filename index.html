@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <link rel="canonical" href="https://danizanella.github.io/portfolio/">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body data-title-key="home.meta.title" data-desc-key="home.meta.description">
@@ -26,7 +26,7 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="nav-brand" aria-label="Daniela Zanella"><span class="brand-full">Daniela Zanella.</span><span class="brand-short" aria-hidden="true">DZ.</span></a>
+        <a href="./" class="nav-brand" aria-label="Daniela Zanella"><span class="brand-full">Daniela Zanella.</span><span class="brand-short" aria-hidden="true">DZ.</span></a>
         <div class="nav-links">
             <a href="#work" class="nav-link" data-i18n="nav.work">Proyectos</a>
             <a href="https://www.linkedin.com/in/dazanella/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
@@ -60,18 +60,19 @@
         <section class="case-studies" id="work">
             <!-- Project 1: NEXUS -->
             <div class="case-card glass-panel fade-in slide-left">
-                <div class="case-content">
-                    <div class="tags">
-                        <span class="tag pink" data-i18n="home.nexus.tag1"></span>
-                        <span class="tag" data-i18n="home.nexus.tag2"></span>
-                        <span class="tag" data-i18n="home.nexus.tag3"></span>
-                    </div>
-                    <h3 data-i18n="home.nexus.title"></h3>
-                    <p data-i18n="home.nexus.text"></p>
-                    <a href="project-nexus.html" class="btn-primary" data-i18n="cta.caseStudy"></a>
+                <!-- Orden del HTML = orden en móvil: tags, imagen, texto. En escritorio se acomoda en 2 columnas con CSS grid -->
+                <div class="tags case-tags">
+                    <span class="tag pink" data-i18n="home.nexus.tag1"></span>
+                    <span class="tag" data-i18n="home.nexus.tag2"></span>
+                    <span class="tag" data-i18n="home.nexus.tag3"></span>
                 </div>
                 <div class="case-image">
                     <img src="assets/images/home/nexus-cover.png" data-i18n-attr="alt:home.nexus.imgAlt" alt="Dashboard del postulante en Nexus">
+                </div>
+                <div class="case-content">
+                    <h3 data-i18n="home.nexus.title"></h3>
+                    <p data-i18n="home.nexus.text"></p>
+                    <a href="project-nexus" class="btn-primary" data-i18n="cta.caseStudy"></a>
                 </div>
             </div>
         </section>
@@ -97,7 +98,7 @@
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="customCursor"></div>
 
-    <script src="js/i18n.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/i18n.js?v=3"></script>
+    <script src="js/script.js?v=3"></script>
 </body>
 </html>
