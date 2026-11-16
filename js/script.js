@@ -87,22 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('a[href^="#"]:not(.is-placeholder)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+
+            // "#" solo (botón de volver arriba): ir al inicio de la página.
+            // Ojo: document.querySelector('#') lanza error, por eso se resuelve antes.
+            if (href === '#') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            const target = document.querySelector(href);
             if (target) {
-                // Adjust scroll position to account for sticky navbar
+                // Compensar la altura del navbar fijo
                 const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-                window.scrollTo({
-                     top: offsetPosition,
-                     behavior: "smooth"
-                });
-            } else if (this.getAttribute('href') === '#') {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
     });
